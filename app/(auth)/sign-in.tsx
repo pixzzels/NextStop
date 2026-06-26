@@ -9,6 +9,7 @@ import {
   TextInput,
   View,
 } from "react-native";
+import { theme } from "@/theme";
 
 import { supabase } from "@/lib/supabase";
 
@@ -45,14 +46,14 @@ export default function SignInScreen() {
       contentContainerStyle={{
         flexGrow: 1,
         justifyContent: "center",
-        padding: 24,
+        padding: theme.spacing.xl,
       }}
     >
       <Text
         style={{
           fontSize: 32,
           fontWeight: "800",
-          marginBottom: 8,
+          marginBottom: theme.spacing.sm,
         }}
       >
         Welcome back
@@ -77,8 +78,8 @@ export default function SignInScreen() {
         onChangeText={setEmail}
         style={{
           borderWidth: 1,
-          borderColor: "#d4d4d8",
-          borderRadius: 12,
+          borderColor: theme.colors.border,
+          borderRadius: theme.radius.md,
           padding: 14,
           marginBottom: 12,
           fontSize: 16,
@@ -93,8 +94,8 @@ export default function SignInScreen() {
         onChangeText={setPassword}
         style={{
           borderWidth: 1,
-          borderColor: "#d4d4d8",
-          borderRadius: 12,
+          borderColor: theme.colors.border,
+          borderRadius: theme.radius.md,
           padding: 14,
           marginBottom: 20,
           fontSize: 16,
@@ -105,19 +106,19 @@ export default function SignInScreen() {
         disabled={isSubmitting}
         onPress={handleSignIn}
         style={{
-          backgroundColor: "#111827",
-          borderRadius: 12,
+          backgroundColor: theme.colors.primary,
+          borderRadius: theme.radius.md,
           padding: 16,
           alignItems: "center",
           opacity: isSubmitting ? 0.7 : 1,
         }}
       >
         {isSubmitting ? (
-          <ActivityIndicator color="#ffffff" />
+          <ActivityIndicator color={theme.colors.textInverse} />
         ) : (
           <Text
             style={{
-              color: "#ffffff",
+              color: theme.colors.textInverse,
               fontSize: 16,
               fontWeight: "700",
             }}
